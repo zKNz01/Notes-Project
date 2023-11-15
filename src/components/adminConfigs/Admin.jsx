@@ -4,13 +4,16 @@ import { Navigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 import URL from '../url';
 import AdminCreate from './AdminCreate';
+import Conf from './Conf';
 
 const Admin = () => {
   const token = sessionStorage.getItem('token');
   const decode = jwtDecode(token);
   const isOwner = decode.owner;
   const [admin, setAdmin] = React.useState(false);
+  const [conf, setConf] = React.useState(false);
   const [data, setData] = React.useState([]);
+  const [dados, setDados] = React.useState({});
 
   if (!token) return <Navigate to="/login" />;
 
@@ -39,6 +42,11 @@ const Admin = () => {
     setAdmin(true);
   }
 
+  function isOpen1(item) {
+    setDados(item);
+    setConf(true);
+  }
+
   return (
     <nav className={styles.div}>
       <div className={styles.infos}>
@@ -55,7 +63,14 @@ const Admin = () => {
                   <h3>{item.email}</h3>
                   <p>{item._id}</p>
                 </div>
-                <div className={styles.contents2}></div>
+                <div className={styles.contents2}>
+                  <button
+                    onClick={() => isOpen1(item)}
+                    className={styles.editar}
+                  >
+                    i
+                  </button>
+                </div>
               </li>
             </ul>
           </nav>
@@ -64,6 +79,7 @@ const Admin = () => {
         <h3>Vazio por aqui...</h3>
       )}
       <AdminCreate isOpen={admin} setAdmin={setAdmin}></AdminCreate>
+      <Conf dados={dados} isOpen1={conf} setConf={setConf}></Conf>
     </nav>
   );
 };
