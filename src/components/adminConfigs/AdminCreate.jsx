@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './AdminCreate.module.css';
 import Input from '../Forms/Input';
-import { validEmail, validSenha } from '../regex';
+import { validEmail, validSenha } from '../utilities/regex';
 import { jwtDecode } from 'jwt-decode';
-import URL from '../url';
+import URL from '../utilities/url';
 
 const AdminCreate = ({ isOpen, setAdmin }) => {
   const [loadButton, setLoadButton] = React.useState(null);

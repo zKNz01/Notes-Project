@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Admin.module.css';
 import { Navigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
-import URL from '../url';
+import URL from '../utilities/url';
 import AdminCreate from './AdminCreate';
 import Conf from './Conf';
 

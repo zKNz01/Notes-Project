@@ -3,7 +3,7 @@ import styles from './Conf.module.css';
 import Input from '../Forms/Input';
 import { Navigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
-import URL from '../url';
+import URL from '../utilities/url';
 
 const Conf = ({ setConf, isOpen1, dados }) => {
   const token = window.sessionStorage.getItem('token');
