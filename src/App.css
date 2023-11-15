@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgba(25, 25, 25, 1);
+  padding-top: 16rem;
+  margin: 0px;
+  color: rgba(240, 240, 240, 1);
+  --type-first: Helvetica, Arial, sans-serif;
+  --type-second: 'Spectral', Georgia;
+  font-family: var(--type-first);
+}
+
+h1, h2, h3, h4, p {
+  margin: 0px;
+}
+
+ul, li {
+  font-size: 1.5rem;
+  font-family: var(--type-first);
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+button, input {
+  display: block;
+  font-size: 1rem;
+  font-family: var(--type-first);
+  color: #333;
+}
+
+.container {
+  max-height: 120rem;
+  padding: 0 1rem;
+  margin: 0 auto;
+}

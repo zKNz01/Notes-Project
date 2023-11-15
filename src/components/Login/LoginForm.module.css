@@ -1,0 +1,112 @@
+.nav {
+  background-color: rgba(241, 224, 192, 1);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.h1 {
+  user-select: none;
+  font-size: 2rem;
+}
+
+.div {
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 22rem;
+  height: 30rem;
+  border-radius: 1rem;
+  background-color: white;
+}
+
+.divForm {
+  user-select: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 230px;
+}
+
+.input {
+  background: transparent;
+  width: 17rem;
+  height: 2rem;
+  border: none;
+  border-bottom: 2px solid #333;
+}
+
+.input:focus {
+  background-color: rgba(230, 230, 230, 0.5);
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #333;
+  border-radius: none;
+}
+
+.label {
+  user-select: none;
+  font-size: 1.1rem;
+  position: relative;
+
+}
+
+.buttonSave {
+  user-select: none;
+  background-color: white;
+  border: none;
+  border: 2px solid black;
+  position: relative;
+  top: 2.5rem;
+  right: 0;
+  left: 0;
+  width: 17rem;
+  height: 40px;
+  cursor: pointer;
+}
+
+.buttonSave:hover {
+  user-select: none;
+  background-color: rgba(220, 220, 220, 1);
+  transition: 0.2s;
+}
+
+.buttonSave:disabled {
+  user-select: none;
+  color: #888;
+  background-color: #eee;
+  cursor: wait;
+}
+
+.divLink {
+  position: relative;
+  user-select: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link {
+  user-select: none;
+  position: relative;
+  text-decoration: underline;
+  color: #333;
+}
+
+.link:hover {
+  color: rgba(182, 151, 39, 0.8)
+}
+
+.error {
+  position: relative;
+  color: red;
+}

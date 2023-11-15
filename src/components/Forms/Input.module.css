@@ -1,0 +1,7 @@
+.error {
+  position: relative;
+  left: -3.7rem;
+  color: red;
+  border-bottom: 2px solid red;
+}
+

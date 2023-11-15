@@ -1,0 +1,128 @@
+.nav {
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(0.5rem);
+}
+
+.div {
+  position: fixed;
+  border-radius: 30px;
+  width: 350px;
+  height: 500px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.button {
+  user-select: none;
+  background-color: white;
+  border: none;
+  border-radius: 33px;
+  position: relative;
+  left: -13rem;
+  top: -13.9rem;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.button:hover {
+  user-select: none;
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.7);
+  background-color: white;
+  transition: 0.2s;
+}
+
+.del {
+  user-select: none;
+  position: relative;
+  top: -18.2rem;
+  left: 8.8rem;
+  border: none;
+  background: transparent;
+}
+
+.del:hover {
+  cursor: pointer;
+  user-select: none;
+  color: red;
+  transition: .2s;
+  background: transparent;
+}
+
+.del::after {
+  content: '';
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url('../../assets/icon-trash.svg');
+}
+
+.infos {
+  user-select: none;
+  color: black;
+}
+
+.dados {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 20rem;
+  width: 20rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.input {
+  background: transparent;
+  margin-bottom: 1rem;
+  width: 17rem;
+  height: 2rem;
+  border: none;
+  border-bottom: 2px solid #333;
+  animation: expandToo .3s forwards;
+}
+
+.input:focus {
+  background-color: rgba(230, 230, 230, 0.5);
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #333;
+  border-radius: none;
+}
+
+.buttonSave {
+  background-color: rgba(230, 230, 230, 1);
+  border: none;
+  position: relative;
+  top: 6rem;
+  right: 0;
+  left: 0;
+  width: 15rem;
+  height: 40px;
+  cursor: pointer;
+}
+
+.buttonSave:hover {
+  background-color: #888;
+  transition: 0.2s;
+}

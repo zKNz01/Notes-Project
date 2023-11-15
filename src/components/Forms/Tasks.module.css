@@ -1,0 +1,86 @@
+.div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 18rem;
+  height: 30rem;
+  position: absolute;
+}
+
+.form {
+  height: 22rem;
+  user-select: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.input {
+  position: relative;
+  background: transparent;
+  width: 17rem;
+  height: 2rem;
+  border: none;
+  border-bottom: 2px solid #333;
+  animation: expandToo .3s forwards;
+}
+
+.input:focus {
+  background-color: rgba(230, 230, 230, 0.5);
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #333;
+  border-radius: none;
+}
+
+.buttonSave {
+  background-color: white;
+  border: none;
+  border: 1.5px solid black;
+  position: relative;
+  top: 10rem;
+  right: 0;
+  left: 0;
+  width: 22rem;
+  height: 40px;
+  cursor: pointer;
+}
+
+.buttonSave:hover {
+  background-color: rgba(220, 220, 220, 1);
+  transition: 0.2s;
+}
+
+.buttonSave:disabled {
+  color: #888;
+  background-color: #eee;
+  cursor: wait;
+}
+
+.label {
+  position: relative;
+  left: -6rem;
+  display: flex;
+  flex-direction: row;
+  color: #333;
+}
+
+.preview {
+  border-radius: 2rem;
+  background-size: cover;
+  background-position: center center;
+}
+
+.error1 {
+  position: fixed;
+  bottom: 27rem;
+  color: red;
+}
+
+.error2 {
+  position: fixed;
+  bottom: 18rem;
+  color: red;
+}

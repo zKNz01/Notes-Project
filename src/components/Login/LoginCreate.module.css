@@ -1,0 +1,99 @@
+.nav {
+  background-color: rgba(241, 224, 192, 1);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.h1 {
+  user-select: none;
+  font-size: 2rem;
+}
+
+.div {
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 22rem;
+  height: 35rem;
+  border-radius: 1rem;
+  background-color: white;
+}
+
+.divForm {
+  user-select: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  height: 300px;
+}
+
+.input {
+  background: transparent;
+  width: 17rem;
+  height: 2rem;
+  border: none;
+  border-bottom: 2px solid #333;
+}
+
+.input:focus {
+  background-color: rgba(230, 230, 230, 0.5);
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #333;
+  border-radius: none;
+}
+
+.buttonSave {
+  user-select: none;
+  background-color: white;
+  border: none;
+  border: 2px solid black;
+  position: relative;
+  top: 2.5rem;
+  right: 0;
+  left: 0;
+  width: 17rem;
+  height: 40px;
+  cursor: pointer;
+}
+
+.buttonSave:hover {
+  user-select: none;
+  background-color: rgba(220, 220, 220, 1);
+  transition: 0.2s;
+}
+
+.buttonSave:disabled {
+  color: #888;
+  background-color: #eee;
+  cursor: wait;
+}
+
+.error1 {
+  position: fixed;
+  bottom: 28.7rem;
+  color: red;
+}
+
+.error2 {
+  position: fixed;
+  bottom: 18rem;
+  color: red;
+}
+
+.error3 {
+  position: fixed;
+  bottom: 17.5rem;
+  color: red;
+}

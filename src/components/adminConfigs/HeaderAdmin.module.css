@@ -1,0 +1,24 @@
+.header {
+  user-select: none;
+  background-color: rgba(35, 35, 35, 1);
+  position: fixed;
+  top: 0;
+  height: 15rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.h1 {
+  animation: fadein 2s ease;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
