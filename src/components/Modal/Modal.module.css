@@ -14,11 +14,10 @@
 }
 
 .div {
-  z-index: 10000;
   position: fixed;
   border-radius: 30px;
-  width: 420px;
-  height: 700px;
+  width: 28rem;
+  height: 46rem;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -27,14 +26,15 @@
   align-content: center;
 }
 
+
 .button {
   user-select: none;
   background-color: white;
   border: none;
   border-radius: 33px;
   position: relative;
-  left: -11rem;
-  top: -20rem;
+  top: -1rem;
+  left: -12.3rem;
   width: 50px;
   height: 50px;
   cursor: pointer;
@@ -44,4 +44,30 @@
   user-select: none;
   background-color: rgba(220, 220, 220, 1);
   transition: 0.2s;
+}
+
+.label {
+  position: relative;
+  left: -6rem;
+  display: flex;
+  flex-direction: row;
+  color: #333;
+}
+
+.preview {
+  border-radius: 2rem;
+  background-size: cover;
+  background-position: center center;
+}
+
+.error1 {
+  position: fixed;
+  bottom: 27rem;
+  color: red;
+}
+
+.error2 {
+  position: fixed;
+  bottom: 18rem;
+  color: red;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './All.module.css';
 import Edit from './Forms/Edit';
-import URL from './url';
+import URL from './utilities/url';
 
 const All = () => {
   const token = window.sessionStorage.getItem('token');

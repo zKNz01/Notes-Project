@@ -45,8 +45,7 @@ const AdminCreate = ({ isOpen, setAdmin }) => {
           email: email,
           senha: senha,
           cnfsenha: senha2,
-          admin: false,
-          owner: true,
+          admin: true,
         });
 
         var requestOptions = {
@@ -59,7 +58,7 @@ const AdminCreate = ({ isOpen, setAdmin }) => {
           redirect: 'follow',
         };
 
-        fetch(`${URL}/api/user/owner`, requestOptions)
+        fetch(`${URL}/api/user/admin`, requestOptions)
           .then((response) => {
             if (response.ok) {
               return response.json();
@@ -127,7 +126,7 @@ const AdminCreate = ({ isOpen, setAdmin }) => {
               className={styles.buttonSave}
               onClick={handleAdmin}
             >
-              Salvaando..
+              Salvando..
             </button>
           ) : (
             <button className={styles.buttonSave} onClick={handleAdmin}>

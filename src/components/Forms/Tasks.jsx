@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Input from './Input';
 import styles from './Tasks.module.css';
-import URL from '../url';
+import URL from '../utilities/url';
 
 const Tasks = (props) => {
   const token = window.sessionStorage.getItem('token');
@@ -64,72 +64,75 @@ const Tasks = (props) => {
   }
 
   return (
-    <div className={styles.div}>
-      <form className={styles.form} onSubmit={SubmitCheck}>
-        <div>{userImg && <img src={userImg}></img>}</div>
-        <input
-          className={styles.files}
-          name="file"
-          type="file"
-          onChange={HandleImg}
-        />
-        <Input
-          onChange={(e) => {
-            setTitulo(e.target.value);
-            setError('');
-          }}
-          className={styles.input}
-          placeholder="Título"
-          type="text"
-          name="titulo"
-        />
-        <Input
-          onChange={(e) => {
-            setDescription(e.target.value);
-            setError('');
-          }}
-          className={styles.input}
-          placeholder="Descrição"
-          type="text"
-          name="descricao"
-        />
-
-        <label className={styles.label}>
-          <input
-            value="Reminder"
-            onChange={(e) => {
-              setRadio(e.target.value);
-              setError('');
-            }}
-            type="radio"
-            name="option"
-          />
-          Reminder
-        </label>
-        <label className={styles.label}>
-          <input
-            value="Important"
-            onChange={(e) => {
-              setRadio(e.target.value);
-              setError('');
-            }}
-            type="radio"
-            name="option"
-          />
-          Important
-        </label>
-        {error && <p className={styles.error2}>{error}</p>}
-        {loadButton ? (
-          <button disabled className={styles.buttonSave}>
-            Salvando...
-          </button>
+    <form className={styles.form} onSubmit={SubmitCheck}>
+      <div className={styles.divImg}>
+        {userImg ? (
+          <img className={styles.img} src={userImg}></img>
         ) : (
-          <button className={styles.buttonSave} onClick={SubmitCheck}>
-            Salvar
-          </button>
+          <div className={styles.noImg}>Sem Imagem</div>
         )}
-      </form>
-    </div>
+      </div>
+      <input
+        className={styles.files}
+        name="file"
+        type="file"
+        onChange={HandleImg}
+      />
+      <Input
+        onChange={(e) => {
+          setTitulo(e.target.value);
+          setError('');
+        }}
+        className={styles.input}
+        placeholder="Título"
+        type="text"
+        name="titulo"
+      />
+      <Input
+        onChange={(e) => {
+          setDescription(e.target.value);
+          setError('');
+        }}
+        className={styles.input}
+        placeholder="Descrição"
+        type="text"
+        name="descricao"
+      />
+      <label className={styles.label}>
+        <input
+          value="Reminder"
+          onChange={(e) => {
+            setRadio(e.target.value);
+            setError('');
+          }}
+          type="radio"
+          name="option"
+        />
+        Reminder
+      </label>
+      <label className={styles.label}>
+        <input
+          value="Important"
+          onChange={(e) => {
+            setRadio(e.target.value);
+            setError('');
+          }}
+          type="radio"
+          name="option"
+        />
+        Important
+      </label>
+      {error && <p className={styles.error2}>{error}</p>}
+      {loadButton ? (
+        <button disabled className={styles.buttonSave}>
+          Salvando...
+        </button>
+      ) : (
+        <button className={styles.buttonSave} onClick={SubmitCheck}>
+          Salvar
+        </button>
+      )}
+    </form>
   );
 };
 

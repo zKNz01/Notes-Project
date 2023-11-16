@@ -1,15 +1,27 @@
-.div {
+.noImg {
   display: flex;
   justify-content: center;
   align-items: center;
-  align-content: center;
-  width: 18rem;
-  height: 30rem;
-  position: absolute;
+  color: black;
+  background-color: #888;
+  border-radius: 15px;
+  height: 225px;
+  width: 225px;
+}
+
+.noImg:hover {
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, .8);
+  transition: .3s;
+}
+
+.img {
+  height: 225px;
+  width: 225px;
+  border-radius: 20px;
 }
 
 .form {
-  height: 22rem;
+  height: 40rem;
   user-select: none;
   display: flex;
   justify-content: space-around;
@@ -20,7 +32,7 @@
 .input {
   position: relative;
   background: transparent;
-  width: 17rem;
+  width: 22rem;
   height: 2rem;
   border: none;
   border-bottom: 2px solid #333;
@@ -38,11 +50,9 @@
 .buttonSave {
   background-color: white;
   border: none;
-  border: 1.5px solid black;
+  border: 2px solid black;
+  border-radius: 6px;
   position: relative;
-  top: 10rem;
-  right: 0;
-  left: 0;
   width: 22rem;
   height: 40px;
   cursor: pointer;
@@ -50,7 +60,8 @@
 
 .buttonSave:hover {
   background-color: rgba(220, 220, 220, 1);
-  transition: 0.2s;
+  border: 1.7px solid black;
+  transition: 0.3s;
 }
 
 .buttonSave:disabled {
@@ -61,7 +72,6 @@
 
 .label {
   position: relative;
-  left: -6rem;
   display: flex;
   flex-direction: row;
   color: #333;

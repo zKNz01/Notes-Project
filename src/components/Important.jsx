@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './All.module.css';
 import Edit from './Forms/Edit';
-import URL from './url';
+import URL from './utilities/url';
 
 const All = () => {
   const token = window.sessionStorage.getItem('token');
@@ -20,9 +20,7 @@ const All = () => {
     };
 
     fetch(`${URL}/api/note?option=Important`, requestOptions)
-      .then((response) => {
-        response.json();
-      })
+      .then((response) => response.json())
       .then((result) => {
         setData(result);
       })

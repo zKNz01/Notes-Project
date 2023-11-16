@@ -4,20 +4,23 @@ import { Navigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 import URL from '../utilities/url';
 import AdminCreate from './AdminCreate';
+import Owner from './Owner';
 import Conf from './Conf';
 
 const Admin = () => {
   const token = sessionStorage.getItem('token');
   const decode = jwtDecode(token);
   const isOwner = decode.owner;
+  const isAdmin = decode.admin;
   const [admin, setAdmin] = React.useState(false);
+  const [owner, setOwner] = React.useState(false);
   const [conf, setConf] = React.useState(false);
   const [data, setData] = React.useState([]);
   const [dados, setDados] = React.useState({});
 
   if (!token) return <Navigate to="/login" />;
 
-  if (isOwner) {
+  if (isOwner || isAdmin) {
     React.useEffect(() => {
       const requestOptions = {
         headers: {
@@ -47,12 +50,23 @@ const Admin = () => {
     setConf(true);
   }
 
+  function isOpen2() {
+    setOwner(true);
+  }
+
   return (
     <nav className={styles.div}>
       <div className={styles.infos}>
-        <button className={styles.button} onClick={isOpen}>
-          + Criar Novo
-        </button>
+        {isOwner && (
+          <button onClick={isOpen2} className={styles.button}>
+            Criar novo Owner
+          </button>
+        )}
+        {isOwner && (
+          <button className={styles.button} onClick={isOpen}>
+            Criar novo Admin
+          </button>
+        )}
       </div>
       {data ? (
         data.map((item) => (
@@ -80,6 +94,7 @@ const Admin = () => {
       )}
       <AdminCreate isOpen={admin} setAdmin={setAdmin}></AdminCreate>
       <Conf dados={dados} isOpen1={conf} setConf={setConf}></Conf>
+      <Owner isOpen2={owner} setOwner={setOwner}></Owner>
     </nav>
   );
 };

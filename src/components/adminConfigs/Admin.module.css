@@ -77,7 +77,6 @@
 }
 
 .editar {
-  z-index: 1;
   font-size: 13px;
   cursor: pointer;
   position: relative;

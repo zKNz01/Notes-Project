@@ -9,6 +9,7 @@ const Conf = ({ setConf, isOpen1, dados }) => {
   const token = window.sessionStorage.getItem('token');
   const decode = jwtDecode(token);
   const isOwner = decode.owner;
+  const isAdmin = decode.admin;
   const [email, setEmail] = React.useState('');
   const [senha, setSenha] = React.useState('');
 
@@ -31,14 +32,13 @@ const Conf = ({ setConf, isOpen1, dados }) => {
       cors: true,
     };
 
-    if (isOwner)
+    if (isOwner || isAdmin)
       await fetch(`${URL}/api/user/${dados._id}`, requestOptions)
         .then((response) => response.json())
         .then((result) => console.log(result))
         .catch((error) => console.log('error', error));
 
     setConf(!isOpen1);
-    window.location.reload();
   }
 
   async function handleEdit(e) {

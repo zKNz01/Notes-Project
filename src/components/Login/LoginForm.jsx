@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './LoginForm.module.css';
 import { Link, Navigate } from 'react-router-dom';
 import Input from '../Forms/Input';
-import URL from '../url';
+import URL from '../utilities/url';
 
 const LoginForm = () => {
   const [auth, setAuth] = React.useState(null);

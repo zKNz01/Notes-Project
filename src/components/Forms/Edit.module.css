@@ -16,8 +16,8 @@
 .div {
   position: fixed;
   border-radius: 30px;
-  width: 350px;
-  height: 500px;
+  width: 28rem;
+  height: 46rem;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -26,14 +26,14 @@
   align-content: center;
 }
 
+
 .button {
   user-select: none;
   background-color: white;
   border: none;
   border-radius: 33px;
   position: relative;
-  left: -13rem;
-  top: -13.9rem;
+  left: -12.3rem;
   width: 50px;
   height: 50px;
   cursor: pointer;
@@ -41,61 +41,72 @@
 
 .button:hover {
   user-select: none;
-  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.7);
-  background-color: white;
+  background-color: rgba(220, 220, 220, 1);
   transition: 0.2s;
 }
 
-.del {
-  user-select: none;
+.label {
   position: relative;
-  top: -18.2rem;
-  left: 8.8rem;
-  border: none;
-  background: transparent;
+  left: -6rem;
+  display: flex;
+  flex-direction: row;
+  color: #333;
 }
 
-.del:hover {
-  cursor: pointer;
-  user-select: none;
+.preview {
+  border-radius: 2rem;
+  background-size: cover;
+  background-position: center center;
+}
+
+.error1 {
+  position: fixed;
+  bottom: 27rem;
   color: red;
-  transition: .2s;
-  background: transparent;
 }
 
-.del::after {
-  content: '';
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  background: url('../../assets/icon-trash.svg');
+.error2 {
+  position: fixed;
+  bottom: 18rem;
+  color: red;
 }
 
-.infos {
-  user-select: none;
-  color: black;
+.img1 {
+  height: 225px;
+  width: 225px;
+  border-radius: 20px;
 }
 
-.dados {
+.img2 {
   display: flex;
   justify-content: center;
-  flex-direction: column;
   align-items: center;
-  height: 20rem;
-  width: 20rem;
+  color: black;
+  background-color: #888;
+  border-radius: 15px;
+  height: 225px;
+  width: 225px;
 }
+
+.img2:hover {
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, .3);
+  transition: .3s;
+}
+
 
 .form {
+  height: 40rem;
+  user-select: none;
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
+  flex-direction: column;
 }
 
-
 .input {
+  position: relative;
   background: transparent;
-  margin-bottom: 1rem;
-  width: 17rem;
+  width: 22rem;
   height: 2rem;
   border: none;
   border-bottom: 2px solid #333;
@@ -111,18 +122,58 @@
 }
 
 .buttonSave {
-  background-color: rgba(230, 230, 230, 1);
+  background-color: white;
   border: none;
+  border: 2px solid black;
+  border-radius: 6px;
   position: relative;
-  top: 6rem;
-  right: 0;
-  left: 0;
-  width: 15rem;
+  width: 22rem;
   height: 40px;
   cursor: pointer;
 }
 
 .buttonSave:hover {
-  background-color: #888;
-  transition: 0.2s;
+  background-color: rgba(220, 220, 220, 1);
+  border: 1.7px solid black;
+  transition: 0.3s;
+}
+
+.buttonSave:disabled {
+  color: #888;
+  background-color: #eee;
+  cursor: wait;
+}
+
+.label {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  color: #333;
+}
+
+.preview {
+  border-radius: 2rem;
+  background-size: cover;
+  background-position: center center;
+}
+
+.error1 {
+  position: fixed;
+  bottom: 27rem;
+  color: red;
+}
+
+.error2 {
+  position: fixed;
+  bottom: 18rem;
+  color: red;
+}
+
+
+.del::after {
+  content: '';
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url('../../assets/icon-trash.svg');
 }

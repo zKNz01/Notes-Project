@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Edit.module.css';
 import useForm from '../../Hooks/useForm';
 import Input from './Input';
-import URL from '../url';
+import URL from '../utilities/url';
 
 const Edit = ({ isOpen, setEdit, dados }) => {
   const [userImgs, setUserImgs] = React.useState();
@@ -90,14 +90,20 @@ const Edit = ({ isOpen, setEdit, dados }) => {
 
   if (isOpen) {
     return (
-      <nav className={`${styles.nav} container`}>
+      <nav className={styles.nav}>
         <div className={styles.div}>
+          <button className={styles.button} onClick={closeEdit}>
+            ↤
+          </button>
           <form className={styles.form}>
             <div>
-              <div>
-                {userImgs ? <img src={userImgs} /> : <img src={dados.image} />}
-              </div>
+              {userImgs ? (
+                <img src={userImgs} className={styles.img1} />
+              ) : (
+                <img className={styles.img2} src={dados.image} />
+              )}
             </div>
+            <input type="file" onChange={handleImgs} />
             <Input
               className={styles.input}
               type="text"
@@ -115,13 +121,9 @@ const Edit = ({ isOpen, setEdit, dados }) => {
             <button className={styles.buttonSave} onClick={handleClickEdit}>
               Salvar
             </button>
-            <button className={styles.del} onClick={handleDel}></button>
           </form>
-          <input type="file" onChange={handleImgs} />
+          <button className={styles.del} onClick={handleDel}></button>
         </div>
-        <button className={styles.button} onClick={closeEdit}>
-          ↤
-        </button>
       </nav>
     );
   }

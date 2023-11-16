@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './LoginCreate.module.css';
 import Input from '../Forms/Input';
-import { validEmail, validSenha } from '../regex';
-import URL from '../url';
+import { validEmail, validSenha } from '../utilities/regex';
+import URL from '../utilities/url';
 
 const LoginForm = () => {
   const [loadButton, setLoadButton] = React.useState(null);

@@ -9,13 +9,9 @@ const Modal = ({ isOpen, setModal }) => {
 
   if (isOpen) {
     return (
-      <nav className={`${styles.nav} container`}>
+      <nav className={styles.nav}>
         <div className={styles.div}>
-          <button
-            className={styles.button}
-            onSubmit={closeModal}
-            onClick={closeModal}
-          >
+          <button className={styles.button} onClick={closeModal}>
             ↤
           </button>
           <Tasks closeModal={closeModal} />
