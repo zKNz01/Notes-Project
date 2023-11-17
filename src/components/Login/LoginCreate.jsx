@@ -1,38 +1,39 @@
 import React from 'react';
 import styles from './LoginCreate.module.css';
 import Input from '../Forms/Input';
-import { validEmail, validSenha } from '../utilities/regex';
+import { validEmail } from '../utilities/regex';
 import URL from '../utilities/url';
+import { Navigate } from 'react-router-dom';
 
 const LoginForm = () => {
   const [loadButton, setLoadButton] = React.useState(null);
   const [email, setEmail] = React.useState('');
-  const [emailErr, setEmailErr] = React.useState(false);
-  const [senhaErr, setSenhaErr] = React.useState(false);
-  const [senhaValueErr, setSenhaValueErr] = React.useState(false);
+  const [emailErr, setEmailErr] = React.useState('');
+  const [senhaValueErr, setSenhaValueErr] = React.useState('');
   const [senha, setSenha] = React.useState('');
   const [senha2, setSenha2] = React.useState('');
   const [error, setError] = React.useState('');
+  const [create, setCreate] = React.useState(false)
 
-  function SubmitLogin(event) {
+  function SubmitLogin(e) {
     setLoadButton(true);
-    event.preventDefault();
+    e.preventDefault();
 
     if (!email || !senha || !senha2) {
       setError('Preencha todos os Campos');
+      setCreate(false)
       setLoadButton(false);
     }
     if (!validEmail.test(email)) {
-      setEmailErr(true);
-      setLoadButton(false);
-    } else if (!validSenha.test(senha)) {
-      setSenhaErr(true);
+      setEmailErr('Insira um Email válido');
+      setCreate(false)
       setLoadButton(false);
     }
     if (senha !== senha2) {
       setSenhaValueErr(true);
+      setCreate(false)
       setLoadButton(false);
-    } else if (email && senha && validEmail && validSenha) {
+    } else if (email && senha && validEmail && !senhaValueErr) {
       var raw = JSON.stringify({
         email: email,
         senha: senha,
@@ -52,7 +53,7 @@ const LoginForm = () => {
       fetch(`${URL}/api/user/public`, requestOptions)
         .then((response) => {
           if (response.ok) {
-            return response.json();
+            return response.json(), setCreate(true);
           } else if (!response.ok) {
             if (response.status === 400) {
               setError('Conta já existente. Por favor faça Login!');
@@ -71,7 +72,7 @@ const LoginForm = () => {
   return (
     <nav className={styles.nav}>
       <div className={styles.div}>
-        <h1 className={styles.h1}>Cadastro</h1>
+        <h1 className={styles.h1}>Cadastre-se!</h1>
         <form className={styles.divForm} onSubmit={SubmitLogin}>
           <Input
             onChange={(e) => {
@@ -84,12 +85,11 @@ const LoginForm = () => {
             type="text"
             name="email"
           />
-          {emailErr && <p className={styles.error1}>Insira um Email válido</p>}
+          {emailErr && <p className={styles.error}>Insira um Email válido</p>}
           <Input
             onChange={(e) => {
               setSenha(e.target.value);
               setError('');
-              setSenhaErr(false);
               setSenhaValueErr(false);
             }}
             className={styles.input}
@@ -101,7 +101,6 @@ const LoginForm = () => {
             onChange={(e) => {
               setSenha2(e.target.value);
               setError('');
-              setSenhaErr(false);
               setSenhaValueErr(false);
             }}
             className={styles.input}
@@ -109,9 +108,8 @@ const LoginForm = () => {
             type="password"
             name="senha2"
           />
-          {senhaErr && <p className={styles.error2}>Insira uma senha forte</p>}
-          {senhaValueErr && <p>Senhas diferentes</p>}
-          {error && <p className={styles.error3}>{error}</p>}
+          {senhaValueErr && <p className={styles.error}>Senhas diferentes</p>}
+          {error && <p className={styles.error}>{error}</p>}
           {loadButton ? (
             <button
               disabled
@@ -127,6 +125,7 @@ const LoginForm = () => {
           )}
         </form>
       </div>
+      {create && <Navigate to='/login' />}
     </nav>
   );
 };

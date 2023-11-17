@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './AdminCreate.module.css';
 import Input from '../Forms/Input';
-import { validEmail, validSenha } from '../utilities/regex';
+import { validEmail } from '../utilities/regex';
 import { jwtDecode } from 'jwt-decode';
 import URL from '../utilities/url';
 
@@ -33,14 +33,11 @@ const AdminCreate = ({ isOpen, setAdmin }) => {
       if (!validEmail.test(email)) {
         setEmailErr(true);
         setLoadButton(false);
-      } else if (!validSenha.test(senha)) {
-        setSenhaErr(true);
-        setLoadButton(false);
       }
       if (senha !== senha2) {
         setSenhaValueErr(true);
         setLoadButton(false);
-      } else if (email && senha && validEmail && validSenha) {
+      } else if (email && senha && validEmail) {
         var raw = JSON.stringify({
           email: email,
           senha: senha,

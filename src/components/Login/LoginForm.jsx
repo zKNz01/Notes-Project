@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './LoginForm.module.css';
 import { Link, Navigate } from 'react-router-dom';
+import { validEmail } from '../utilities/regex';
 import Input from '../Forms/Input';
 import URL from '../utilities/url';
 
@@ -8,6 +9,7 @@ const LoginForm = () => {
   const [auth, setAuth] = React.useState(null);
   const [loadButton, setLoadButton] = React.useState(null);
   const [email, setEmail] = React.useState('');
+  const [emailErr, setEmailErr] = React.useState('');
   const [senha, setSenha] = React.useState('');
   const [error, setError] = React.useState('');
 
@@ -19,7 +21,12 @@ const LoginForm = () => {
       setError('Preencha todos os Campos');
       setAuth(false);
       setLoadButton(false);
-    } else if (email || senha) {
+    }
+    if (!validEmail.test(email)) {
+      setEmailErr('Insira um email válido');
+      setLoadButton(false);
+    }
+    if (email && senha && validEmail) {
       var raw = JSON.stringify({
         email: email,
         senha: senha,
@@ -40,7 +47,7 @@ const LoginForm = () => {
             return response.json();
           } else if (!response.ok) {
             if (response.status === 400) {
-              setError('Email ou Senha inválido');
+              setError('Email ou Senha incorreto');
               setAuth(false);
               setLoadButton(false);
             }
@@ -59,22 +66,25 @@ const LoginForm = () => {
   return (
     <nav className={styles.nav}>
       <div className={styles.div}>
-        <h1 className={styles.h1}>Entrar</h1>
+        <h1 className={styles.h1}>Login</h1>
         <form className={styles.divForm} onSubmit={handleLogin}>
           <Input
             onChange={(e) => {
               setEmail(e.target.value);
               setError('');
+              setEmailErr('')
             }}
             className={styles.input}
             label="Email"
             type="text"
             name="email"
           />
+          {emailErr && <p className={styles.error}>{emailErr}</p>}
           <Input
             onChange={(e) => {
               setSenha(e.target.value);
               setError('');
+              setEmailErr('')
             }}
             label="Senha"
             className={styles.input}

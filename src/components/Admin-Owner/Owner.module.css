@@ -1,0 +1,84 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(0.3rem);
+}
+
+.div {
+  position: absolute;
+  border-radius: 30px;
+  width: 350px;
+  height: 500px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  position: absolute;
+}
+
+.button {
+  position: relative;
+  bottom: -3rem;
+}
+
+
+.form {
+  position: relative;
+  color: #333;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-bottom: 3rem;
+  height: 200px;
+}
+
+.buttonSave {
+  background-color: white;
+  border: none;
+  border: 1.5px solid black;
+  position: relative;
+  top: 2.5rem;
+  right: 0;
+  left: 0;
+  width: 17rem;
+  height: 40px;
+  cursor: pointer;
+}
+
+.buttonSave:hover {
+  background-color: rgba(220, 220, 220, 1);
+  transition: 0.2s;
+}
+
+.buttonSave:disabled {
+  color: #888;
+  background-color: #eee;
+  cursor: wait;
+}
+
+.input {
+  background: transparent;
+  width: 17rem;
+  height: 2rem;
+  border: none;
+  border-bottom: 2px solid #333;
+}
+
+.input:focus {
+  background-color: rgba(230, 230, 230, 0.5);
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #333;
+  border-radius: none;
+}

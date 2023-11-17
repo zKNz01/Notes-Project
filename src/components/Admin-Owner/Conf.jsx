@@ -39,6 +39,7 @@ const Conf = ({ setConf, isOpen1, dados }) => {
         .catch((error) => console.log('error', error));
 
     setConf(!isOpen1);
+    window.location.reload();
   }
 
   async function handleEdit(e) {
@@ -47,8 +48,6 @@ const Conf = ({ setConf, isOpen1, dados }) => {
     var raw = JSON.stringify({
       email: email,
       senha: senha,
-      admin: false,
-      owner: false,
     });
 
     var requestOptions = {
@@ -62,13 +61,14 @@ const Conf = ({ setConf, isOpen1, dados }) => {
       cors: true,
     };
 
-    if (isOwner)
+    if (isOwner || isAdmin)
       await fetch(`${URL}/api/user/${dados._id}`, requestOptions)
         .then((response) => response.json())
         .then((result) => console.log(result))
         .catch((error) => console.log('error', error));
 
     setConf(false);
+    window.location.reload();
   }
 
   function closeConf() {
